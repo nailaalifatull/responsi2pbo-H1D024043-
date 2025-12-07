@@ -1,0 +1,28 @@
+Pertanyaan Refleksi
+Setelah menyelesaikan kode, jawab pertanyaan berikut:
+
+1. Apa perbedaan antara interface dengan class biasa?
+2. Mengapa interface tidak memiliki implementasi method di dalamnya?
+3. Apa tujuan penggunaan keyword "implements" pada sebuah class?
+4. Apakah sebuah class dapat mengimplementasikan lebih dari satu interface? Jelaskan dan berikan contoh sederhana.
+5. Jika sebuah class mengimplementasikan interface, apa yang terjadi jika class tersebut tidak mengimplementasikan semua method dari interface tersebut?
+
+1.Kelas biasa menjelaskan atribut dan perilaku lengkap dari sebuah objek, sedangkan interface hanya berisi daftar method kosong dan konstanta.
+Interface lebih berfungsi sebagai kontrak yang menjelaskan kemampuan apa saja yang harus dimiliki oleh suatu class, tanpa memberikan detail
+cara kerjanya.
+
+2.Sebelum Java 8, interface tidak memiliki implementasi karena tujuannya memang hanya mendefinisikan apa yang harus dilakukan, bukan
+bagaimana melakukannya. Dengan begitu, pemisahan antara aturan (interface) dan realisasi kode (class) menjadi lebih jelas.
+
+3.Keyword implements digunakan oleh sebuah class untuk menyatakan bahwa ia sanggup melaksanakan semua perilaku yang didefinisikan oleh
+sebuah interface. Ini seperti janji bahwa class tersebut akan menyediakan isi untuk semua method dalam interface.
+
+4.Sebuah class di Java bisa mengimplementasikan lebih dari satu interface sekaligus, sehingga ia dapat memiliki banyak kemampuan tanpa
+batasan pewarisan tunggal. Misalnya, sebuah class pembayaran seperti EWalletPayment bisa mengimplementasikan beberapa interface seperti
+PaymentMethod dan PromoProvider. Dari PaymentMethod, class tersebut wajib menyediakan method seperti processPayment(), getPaymentDetails(),
+getTransactionFee(), dan getBalance(). Sementara dari PromoProvider, ia bisa menambahkan fitur lain seperti perhitungan diskon atau cashback.
+Dengan cara ini, satu class bisa memiliki banyak fungsi berbeda tanpa harus menyalin kode atau membuat hierarki pewarisan yang rumit.
+
+5.Jika sebuah class tidak mengimplementasikan seluruh method dari interface yang dijanjikannya, maka class tersebut dianggap belum lengkap.
+Akibatnya, class tersebut harus dideklarasikan sebagai abstract class dan tidak bisa dibuat objeknya hingga ada subclass lain yang
+menyelesaikan metode-metode yang belum diimplementasikan.

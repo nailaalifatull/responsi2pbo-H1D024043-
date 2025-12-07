@@ -1,0 +1,38 @@
+Setelah anda menyelesaikan kode, tolong jawab pertanyaan dibawah ini ya =
+
+
+1. Apa tujuan utama adanya interface dalam pemrograman berorientasi objek, dan bagaimana interface membantu menciptakan kontrak perilaku?
+2. Mengapa interface dapat memiliki banyak implementasi, dan apa makna konseptual dari kemampuan tersebut dalam desain sistem?
+3. Apa perbedaan mendasar antara extends dan implements dalam konteks interface, jika dilihat secara konsep tanpa melihat contoh kode?
+4. Apa alasan diperkenalkannya default method dalam interface, dan bagaimana fitur ini memengaruhi keberlangsungan (compatibility) suatu sistem yang sudah berjalan?
+5. Bagaimana konsep multiple interface memperluas fleksibilitas desain tanpa menimbulkan masalah kompleksitas yang biasa muncul pada multiple inheritance?
+
+jawaban:
+
+1.Interface berfungsi sebagai sebuah kontrak atau standar. Jika sebuah class menggunakan interface tertentu, misalnya interface USB,
+maka class tersebut dijamin memiliki method connect() dan disconnect(). Dengan begitu, sistem lain tidak perlu tahu detail classnya
+apa—yang penting class tersebut mematuhi kontrak yang sama sehingga bisa berkomunikasi dengan cara yang seragam.
+
+2.Banyaknya implementasi interface membuat sistem jadi lebih fleksibel (loose coupling), karena class bekerja dengan interface—bukan dengan
+class tertentu. Contohnya, ProgrammerMagang mengimplementasikan dua interface: KaryawanKontrak dan AksesSistem. Artinya, sistem
+penggajian cukup mengenali objek bertipe KaryawanKontrak saja ketika ingin menghitung gaji atau memperpanjang kontrak, tanpa peduli
+apakah objek itu ProgrammerMagang, DesignerFreelance, atau class lain. Begitu juga sistem keamanan hanya butuh interface AksesSistem
+untuk proses login dan logout. Jika suatu hari kamu membuat class baru seperti AdminTetap atau KonsultanIT yang juga memakai dua interface
+tersebut, seluruh sistem tetap berjalan tanpa mengubah kode inti. Inilah efek loose coupling: aplikasi tidak tergantung pada class spesifik,
+tapi pada interface-nya.
+
+3.Kata kunci extends digunakan dalam pewarisan untuk menunjukkan hubungan “adalah” (is-a), misalnya “Kucing adalah Hewan”. Sementara itu,
+implements digunakan untuk memberikan kemampuan tambahan dengan hubungan “bisa melakukan” (can-do), misalnya “Kucing bisa Memanjat”.
+Jadi, extends menurunkan sifat dasar dari kelas induk, sedangkan implements menambahkan perilaku khusus dari sebuah interface.
+
+4.Default method diperkenalkan pada Java 8 agar kita bisa menambah method baru di sebuah interface tanpa membuat class-class lama
+yang mengimplementasikannya menjadi error. Dengan adanya default method, class lama secara otomatis mewarisi method baru tersebut
+tanpa perlu menulis ulang atau melakukan perubahan pada kode mereka.
+
+5.Java tidak mengizinkan sebuah class memiliki dua parent class sekaligus (multiple inheritance) karena bisa menimbulkan konflik,
+misalnya jika kedua parent memiliki method atau variabel yang sama—situasi ini dikenal sebagai diamond problem. Namun Java tetap aman
+memperbolehkan multiple interface, karena interface tidak membawa data atau implementasi kompleks. Pada interface, yang ada hanya daftar
+method dan sifat umum seperti default method. Contohnya bisa dilihat pada class ProgrammerMagang, yang mengimplementasikan dua interface
+sekaligus: KaryawanKontrak dan AksesSistem. Dari KaryawanKontrak, ia menyediakan implementasi method seperti hitungGaji() dan
+perpanjangKontrak(), sementara dari AksesSistem ia mengisi method login() dan logout(). Karena interface tidak membawa state,
+keduanya bisa digabung tanpa konflik, dan class tetap mudah dikelola serta fleksibel.

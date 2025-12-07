@@ -1,0 +1,30 @@
+[PERTANYAAN PENGAYAAN]
+
+1. Mengapa constructor di class Member wajib memanggil constructor Customer menggunakan super(...)?
+2. Apa tujuan memanggil super.tampilkanInfo() saat melakukan overriding method di subclass?
+3. Berikan contoh kondisi di mana pemanggilan super.method() sangat penting dalam pewarisan.
+4. Bagaimana keyword super membantu membedakan atribut yang memiliki nama sama antara parent dan child?
+5. Mengapa pendekatan inheritance lebih efisien dibanding menyalin ulang seluruh atribut dan method ke dalam class Member?
+
+jawaban:
+
+1.Pemanggilan super(...) wajib dilakukan karena objek subclass harus memastikan bagian dari parent-nya sudah terbentuk dengan benar.
+Sebagai contoh, Member adalah perluasan dari Customer, sehingga Java perlu membangun struktur dasar Customer terlebih dahulu sebelum
+menambahkan fitur yang dimiliki Member.
+
+2.Penggunaan super.tampilkanInfo() saat melakukan override bertujuan agar method di parent tetap dijalankan. Setelah itu, subclass bisa
+menambahkan informasi tambahan tanpa harus menulis ulang logika yang sudah ada. Jadi, kita memperluas fungsinya, bukan mengganti.
+
+3.Penggunaan super.method() menjadi penting ketika kita melakukan override agar logika dasar dari parent tetap dijalankan sebelum
+menambahkan fitur tambahan di subclass. Contohnya terlihat pada method tampilkanInfo() di kelas Member. Di sana, super.tampilkanInfo()
+dipanggil terlebih dahulu untuk menampilkan data umum seorang customer seperti nama, nomor identitas, dan total belanja. Setelah informasi
+dasar itu keluar, barulah kelas Member menambahkan detail khusus seperti poin reward dan level keanggotaan. Tanpa super.tampilkanInfo(),
+kita harus menulis ulang seluruh logika milik Customer, yang tentunya membuang waktu dan rentan error. Dengan kata lain, super.method()
+membantu kita memperluas fungsi yang sudah ada tanpa mengulang kode dari awal.
+
+4.Jika subclass dan parent memiliki atribut dengan nama yang sama, kondisi ini disebut shadowing. Dalam kasus ini, this.nama digunakan
+untuk mengakses variabel yang dimiliki subclass, sementara super.nama digunakan untuk mengakses variabel yang ada di parent class.
+
+5.Inheritance jauh lebih efisien dibandingkan menyalin kode secara manual. Saat ada bug atau perubahan pada logika dasar,
+kita cukup memperbaikinya di parent class. Semua subclass otomatis ikut mendapatkan perbaikan tersebut, sehingga pemeliharaan
+menjadi lebih mudah dan cepat.

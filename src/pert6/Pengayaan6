@@ -1,0 +1,32 @@
+Pertanyaan Refleksi
+ Setelah menyelesaikan kode, jawab pertanyaan berikut:
+
+ 1. Apa itu abstract class dan Kenapa kita membutuhkan Abstarct class?
+ 2. Apa perbedaan utama antara abstract class dan class biasa dalam pemrograman berorientasi objek?
+ 3. Mengapa subclass wajib mengimplementasikan semua abstract method dari parent class?
+ 4. Mengapa abstract method tidak boleh memiliki isi implementasi di dalam abstract class?
+ 5. Bagaimana abstract class dapat mendukung konsep polimorfisme, dan mengapa objek yang direferensikan melalui tipe abstract class tetap dapat menjalankan perilaku berbeda pada masing-masing subclass?
+
+ jawaban:
+ 1.Abstract class adalah kelas yang tidak dapat dibuat objeknya secara langsung. Kelas ini berfungsi sebagai kerangka dasar atau
+ blueprint bagi kelas-kelas turunannya, sehingga setiap subclass memiliki standar struktur yang sama sesuai yang ditentukan oleh
+ abstract class.
+
+ 2.Perbedaan utama abstract class dengan kelas biasa terletak pada dua hal: abstract class tidak bisa diinstansiasi (kita tidak
+ bisa membuat objek dari kelas tersebut), dan abstract class boleh berisi abstract method, yaitu method yang dideklarasikan tanpa isi.
+
+ 3.Subclass wajib mengimplementasikan abstract method karena method tersebut adalah semacam "kontrak” yang harus diselesaikan.
+ Abstract class hanya menyediakan deklarasinya saja, sehingga subclass perlu mengisi detail logikanya agar bisa menjadi kelas
+ konkret yang benar-benar dapat digunakan.
+
+ 4. Abstract method tidak memiliki isi karena kelas induknya hanya mendefinisikan konsep umumnya saja dan tidak mengetahui detail cara
+ kerjanya. Contohnya, kelas KendaraanGalaksi hanya mendeklarasikan method seperti aktifkanMesin(), jelajah(), dan isiEnergi()
+ tanpa memberikan kode di dalamnya. Ini karena KendaraanGalaksi hanya merepresentasikan kendaraan luar angkasa secara umum dan tidak tahu
+ bagaimana setiap jenis kendaraan bekerja. Detail implementasi barulah diberikan oleh subclass. Misalnya, PesawatTempur mengisi sendiri cara
+ mengaktifkan mesin, menjelajah, serta mengisi energi sesuai karakteristik pesawat tempur. Begitu juga KapalEksplorasi, yang memberikan
+ implementasi berbeda sesuai fungsinya sebagai kapal penjelajah. Dengan kata lain, abstract class hanya menentukan “apa yang harus ada”,
+ sementara subclass yang menentukan “bagaimana cara melakukannya”.
+
+ 5.Abstract class juga mendukung konsep polimorfisme. Kita bisa membuat variabel bertipe abstract class, lalu mengisinya dengan objek dari
+ subclass mana pun. Saat method dipanggil, hasilnya bisa berbeda tergantung objek subclass apa yang sedang digunakan, walaupun pemanggilnya
+ tetap sama.

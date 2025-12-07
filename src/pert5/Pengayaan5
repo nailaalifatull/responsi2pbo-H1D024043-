@@ -1,0 +1,27 @@
+SOAL PENGAYAAN (Refleksi Polimorfisme)
+Jawablah pertanyaan berikut:
+1. Apa yang dimaksud dengan polimorfisme dalam OOP? Jelaskan bagaimana metode override bekerja.
+2. Mengapa array bertipe DefaultMesin dapat menyimpan objek MesinMotor dan MesinTraktor?
+3. Apa perbedaan override dan overload?
+4. Apa keuntungan menggunakan polimorfisme dalam sistem inventaris seperti contoh di atas?
+5. Bagaimana cara kerja dynamic dispatch pada Java saat memanggil method override?
+
+jawaban:
+1.Polimorfisme berarti sebuah objek bisa tampil dalam “banyak bentuk”. Dalam Java, variabel yang bertipe parent bisa berisi objek
+dari subclass mana pun. Saat terjadi override, method yang dijalankan bukan berdasarkan tipe variabelnya, tetapi berdasarkan objek
+asli yang ada di memori. Jadi walaupun referensinya bertipe parent, yang dipanggil tetap method milik subclass.
+
+2.Karena `MesinMotor` dan `MesinTraktor` adalah turunan dari `DefaultMesin`, maka keduanya dianggap sebagai bentuk lain dari `DefaultMesin`
+(hubungan is-a). Karena itu, array bertipe parent boleh menampung objek-objek subclass, sehingga lebih fleksibel dalam menyimpan berbagai
+jenis mesin.
+
+3.Override adalah polimorfisme yang terjadi saat program berjalan (runtime), di mana method memiliki nama dan parameter yang sama persis.
+Sementara itu, overload terjadi saat kompilasi (compile-time) karena method menggunakan nama yang sama tetapi parameternya berbeda.
+
+4.Dalam sistem inventaris, penggunaan konsep ini membuat program jauh lebih fleksibel. Kita cukup membuat proses inventaris yang menerima
+tipe dasar seperti `Barang`. Jika suatu hari muncul jenis barang baru, misalnya Elektronik itu kita tidak perlu mengubah kode lama.
+Cukup buat subclass baru dan masukkan objeknya, dan sistem tetap berjalan tanpa modifikasi besar.
+
+5.Dynamic dispatch adalah mekanisme Java untuk menentukan method mana yang dipanggil saat program berjalan. Java tidak melihat tipe variabel
+referensinya, tetapi melihat tipe objek yang sebenarnya ada di memori. Jika objek tersebut adalah subclass yang meng-override method, maka
+method milik subclass itulah yang dieksekusi.

@@ -1,0 +1,30 @@
+Pertanyaan Refleksi
+Setelah menyelesaikan kode, jawab pertanyaan berikut:
+
+1. Apa fungsi keyword 'extends' dalam deklarasi class Java?
+2. Jelaskan perbedaan antara Method Overloading (yang ada di latihan sebelumnya) dengan Method Overriding (yang ada di latihan ini)!
+3. Apa kegunaan keyword 'super' di dalam constructor subclass (Manajer)?
+4. Jika variabel di class Karyawan diubah access modifier-nya menjadi 'private', apa yang akan terjadi pada class Manajer? Bagaimana solusinya?
+5. Mengapa kita perlu menggunakan Inheritance? Apa keuntungan utamanya dibandingkan membuat dua class yang terpisah sama sekali (misal class Karyawan dan class Manajer dibuat terpisah tanpa hubungan)?
+
+Jawaban:
+
+1. Kata kunci extends digunakan untuk menunjukkan bahwa sebuah kelas mewarisi sifat dan perilaku dari kelas lain. Artinya, kelas
+tersebut menjadi subclass dan otomatis mendapatkan semua fitur dari parent class. Misalnya pada class Manajer extends Karyawan, kelas
+Manajer mewarisi atribut dan method dari Karyawan.
+
+2. Overloading adalah kondisi ketika sebuah method memiliki nama yang sama tetapi parameternya berbeda, dan biasanya terjadi dalam
+ satu kelas. Tujuannya untuk menyediakan variasi input. Sementara itu, overriding adalah ketika subclass menuliskan ulang method
+ milik parent dengan nama dan parameter yang sama persis. Ini dilakukan agar subclass bisa mengubah atau menyesuaikan perilaku
+ method yang diwarisi.
+
+3.Keyword super digunakan di dalam constructor subclass untuk memanggil constructor milik parent class. Ini penting agar atribut
+dari parent bisa diinisialisasi terlebih dahulu sebelum subclass menambahkan atribut atau logika tambahan miliknya sendiri.
+
+4.Jika variabel di parent class dideklarasikan sebagai private, maka subclass tidak bisa mengaksesnya secara langsung. Untuk
+mengatasinya, variabel tersebut bisa diubah menjadi protected agar dapat diakses oleh anak, atau disediakan method getter dan
+setter yang sifatnya public sehingga subclass bisa mengambil atau mengubah nilainya dengan aman.
+
+5.Inheritance diperlukan agar kode yang sama tidak perlu ditulis berulang kali. Bagian yang umum bisa ditempatkan di parent
+class lalu diwariskan ke subclass, sehingga lebih efisien dan rapi. Selain itu, konsep ini juga mendukung hirarki dan polimorfisme,
+di mana objek-objek berbeda tetap bisa diperlakukan sebagai tipe yang sama berdasarkan parent-nya.
